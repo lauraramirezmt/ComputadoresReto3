@@ -26,7 +26,7 @@ public class ReservationController {
     public Optional<Reservation> getReservationById(@PathVariable("id") int id) {
         return reservationService.getReservation(id);
     }
-    
+
     @PostMapping("/save")
     @ResponseStatus(HttpStatus.CREATED)
     public Reservation save(@RequestBody Reservation reservation) {
