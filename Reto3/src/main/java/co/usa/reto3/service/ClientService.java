@@ -18,15 +18,15 @@ public class ClientService {
         return clientRepository.getAll();
     }
     
-    public Optional<Client> getClient(int idCli) {
-        return clientRepository.getClient(idCli);
+    public Optional<Client> getClient(int id) {
+        return clientRepository.getClient(id);
     }
     
     public Client save(Client client) {
-        if (client.getIdCli() == null) {
+        if (client.getId() == null) {
             return clientRepository.save(client);
         } else {
-            Optional<Client> cliAux = clientRepository.getClient(client.getIdCli());
+            Optional<Client> cliAux = clientRepository.getClient(client.getId());
             if (cliAux.isEmpty()) {
                 return clientRepository.save(client);
             } else {

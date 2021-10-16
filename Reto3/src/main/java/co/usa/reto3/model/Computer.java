@@ -7,50 +7,49 @@ import javax.persistence.*;
 public class Computer {
 
     @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Integer idCom;
-    private String brandCom;
-    private Integer modelCom;
-    private Integer categoryId;
-    private String nameCom;
+    private Integer id;
+    private String brand;
+    private Integer model;
+    private Integer category_id;
+    private String name;
 
-    public Integer getIdCom() {
-        return idCom;
+    public Integer getId() {
+        return id;
     }
 
-    public void setIdCom(Integer idCom) {
-        this.idCom = idCom;
+    public void setId(Integer id) {
+        this.id = id;
     }
 
-    public String getBrandCom() {
-        return brandCom;
+    public String getBrand() {
+        return brand;
     }
 
-    public void setBrandCom(String brandCom) {
-        this.brandCom = brandCom;
+    public void setBrand(String brand) {
+        this.brand = brand;
     }
 
-    public Integer getModelCom() {
-        return modelCom;
+    public Integer getModel() {
+        return model;
     }
 
-    public void setModelCom(Integer modelCom) {
-        this.modelCom = modelCom;
+    public void setModel(Integer model) {
+        this.model = model;
     }
 
-    public Integer getCategoryId() {
-        return categoryId;
+    public Integer getCategory_id() {
+        return category_id;
     }
 
-    public void setCategoryId(Integer categoryId) {
-        this.categoryId = categoryId;
+    public void setCategory_id(Integer category_id) {
+        this.category_id = category_id;
     }
 
-    public String getNameCom() {
-        return nameCom;
+    public String getName() {
+        return name;
     }
 
-    public void setNameCom(String nameCom) {
-        this.nameCom = nameCom;
+    public void setName(String name) {
+        this.name = name;
     }
 }

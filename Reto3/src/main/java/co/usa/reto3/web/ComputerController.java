@@ -10,7 +10,7 @@ import java.util.List;
 import java.util.Optional;
 
 @RestController
-@RequestMapping("api/computer")
+@RequestMapping("/api/computer")
 @CrossOrigin(origins = "*", methods= {RequestMethod.GET,RequestMethod.POST,RequestMethod.PUT,RequestMethod.DELETE})
 public class ComputerController {
 
@@ -22,9 +22,9 @@ public class ComputerController {
         return computerService.getAll();
     }
 
-    @GetMapping("/{idCom}")
-    public Optional<Computer> getComputerById(@PathVariable("idCom") int idCom) {
-        return computerService.getComputer(idCom);
+    @GetMapping("/{id}")
+    public Optional<Computer> getComputerById(@PathVariable("id") int id) {
+        return computerService.getComputer(id);
     }
 
     @PostMapping("/save")

@@ -7,41 +7,40 @@ import javax.persistence.*;
 public class Client {
 
     @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Integer idCli;
-    private String nameCli;
-    private String emailCli;
-    private Integer ageCli;
+    private Integer id;
+    private String name;
+    private String email;
+    private Integer age;
 
-    public Integer getIdCli() {
-        return idCli;
+    public Integer getId() {
+        return id;
     }
 
-    public void setIdCli(Integer idCli) {
-        this.idCli = idCli;
+    public void setId(Integer id) {
+        this.id = id;
     }
 
-    public String getNameCli() {
-        return nameCli;
+    public String getName() {
+        return name;
     }
 
-    public void setNameCli(String nameCli) {
-        this.nameCli = nameCli;
+    public void setName(String name) {
+        this.name = name;
     }
 
-    public String getEmailCli() {
-        return emailCli;
+    public String getEmail() {
+        return email;
     }
 
-    public void setEmailCli(String emailCli) {
-        this.emailCli = emailCli;
+    public void setEmail(String email) {
+        this.email = email;
     }
 
-    public Integer getAgeCli() {
-        return ageCli;
+    public Integer getAge() {
+        return age;
     }
 
-    public void setAgeCli(Integer ageCli) {
-        this.ageCli = ageCli;
+    public void setAge(Integer age) {
+        this.age = age;
     }
 }

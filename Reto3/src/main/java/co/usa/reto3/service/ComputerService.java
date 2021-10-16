@@ -18,15 +18,15 @@ public class ComputerService {
         return computerRepository.getAll();
     }
 
-    public Optional<Computer> getComputer(int idCom) {
-        return computerRepository.getComputer(idCom);
+    public Optional<Computer> getComputer(int id) {
+        return computerRepository.getComputer(id);
     }
 
     public Computer save(Computer computer) {
-        if (computer.getIdCom() == null) {
+        if (computer.getId() == null) {
             return computerRepository.save(computer);
         } else {
-            Optional<Computer> comAux = computerRepository.getComputer(computer.getIdCom());
+            Optional<Computer> comAux = computerRepository.getComputer(computer.getId());
             if (comAux.isEmpty()) {
                 return computerRepository.save(computer);
             } else {

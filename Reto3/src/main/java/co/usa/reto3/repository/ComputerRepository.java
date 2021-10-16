@@ -18,8 +18,8 @@ public class ComputerRepository {
         return (List<Computer>) computerCrudRepository.findAll();
     }
 
-    public Optional<Computer> getComputer(int idCom) {
-        return computerCrudRepository.findById(idCom);
+    public Optional<Computer> getComputer(int id) {
+        return computerCrudRepository.findById(id);
     }
 
     public Computer save(Computer computer) {
