@@ -1,112 +1,179 @@
+PRUEBAS MASTERTECH - RETO 3
+-----------------------------------------------------------------
+
+=> Paso 1.a
+--------
+POST /api/Category/save
+--------
+{
+    "name":"cat1",
+    "description":"test category"
+}
+=> Paso 1.b
+---------
+GET /api/Category/all
+---------
 [
     {
-        "id": 1,
-        "name": "cat1", 
-        "'description'": "test category", 
-        "computers": []
+        "id":1,
+        "name":"cat1",
+        "description":"test category",
+        "computers":[]
     }
 ]
-------------------------------------------------------
 
-------------------------------------------------------
+=> Paso 2.a
+--------
+POST /api/Computer/save
+--------
+{
+    "brand":"IBM",
+    "year":2019,
+    "category":{
+                "id":1
+                },
+    "name":"Core I5",
+    "description":"Core I5"
+}
+=> Paso 2.b
+--------
+GET /api/Computer/all
+--------
 [
     {
-        "id": 1, 
-        "name": "Core I5", 
-        "brand": "IBM", 
-        "year": 2019, 
-        "description": "Core I5", 
-        "category": 
-            {
-                "id": 1, 
-                "name": "cat1", 
-                "description": "test category"
-            }, 
-        "messages": [], 
-        "reservations": []
+        "id":1,
+        "name":"Core I5",
+        "brand":"IBM",
+        "year":2019,
+        "description":"Core I5",
+        "category":{
+                    "id":1,
+                    "name":"cat1",
+                    "description":"test category"
+                    },
+        "messages":[],
+        "reservations":[]
     }
 ]
--------------------------------------------------------
 
--------------------------------------------------------
+=> Paso 3.a
+--------
+POST /api/Client/save
+--------
+{
+    "name":"Agustin Parra",
+    "email":"agustin@gmail.com",
+    "password":"agustin123",
+    "age":18
+}
+=> Paso 3.b
+---------
+GET /api/Client/all
+---------
 [
     {
-        'idClient': 1, 
-        'email': 'agustin@gmail.com', 
-        'password': 'agustin123', 
-        'name': 'Agustin Parra', 
-        'age': 18, 
-        'messages': [], 
-        'reservations': []
+        "idClient":1,
+        "email":"agustin@gmail.com",
+        "password":"agustin123",
+        "name":"Agustin Parra",
+        "age":18,
+        "messages":[],
+        "reservations":[]
     }
 ]
---------------------------------------------------------
 
---------------------------------------------------------
+=> Paso 4.a
+-----------
+POST /api/Message/save
+-----------
+{
+    "messageText":"Me gusta.",
+    "client": {
+            "idClient":1
+              },
+    "computer": {
+            "id":1
+                }
+}
+=> Paso 4.b
+------------
+GET /api/Message/all
+------------
 [
     {
-        'idMessage': 1, 
-        'messageText': 'Me gusta.', 
-        'computer': 
-            {
-                'id': 1, 
-                'name': 'Core I5', 
-                'brand': 'IBM', 
-                'year': 2019, 
-                'description': 'Core I5', 
-                'category': 
-                    {
-                        'id': 1, 
-                        'name': 'cat1', 
-                        'description': 'test category'
-                    }
-            }, 
-            'client': 
-                {
-                    'idClient': 1, 
-                    'email': 'agustin@gmail.com', 
-                    'password': 'agustin123', 
-                    'name': 'Agustin Parra', 
-                    'age': 18
+        "idMessage":1,
+        "messageText":"Me gusta.",
+        "computer":{
+                    "id":1,
+                    "name":"Core I5",
+                    "brand":"IBM",
+                    "year":2019,
+                    "description":"Core I5",
+                    "category":{
+                                "id":1,
+                                "name":"cat1",
+                                "description":"test category"
+                                }
+                    },
+        "client":{
+                "idClient":1,
+                "email":"agustin@gmail.com",
+                "password":"agustin123",
+                "name":"Agustin Parra",
+                "age":18
                 }
     }
 ]
-------------------------------------------------------------
 
-------------------------------------------------------------
+=> Paso 5.a
+------------
+POST /api/Reservation/save
+------------
+{
+    "startDate":"2020-12-20",
+    "devolutionDate":"2020-12-20",
+    "client": {
+            "idClient":1
+              },
+    "computer": {
+                "id":1
+                }
+}
+=> Paso 5.b
+------------
+GET /api/Reservation/all
+------------
 [
     {
-        'idReservation': 1, 
-        'startDate': '2020-12-20T00:00:00.000+00:00', 
-        'devolutionDate': '2020-12-20T00:00:00.000+00:00', 
-        'status': 'created', 
-        'computer': 
-            {
-                'id': 1, 
-                'name': 'Core I5', 
-                'brand': 'IBM', 'year': 2019, 
-                'description': 'Core I5', 
-                'category': 
-                    {
-                        'id': 1, 
-                        'name': 'cat1', 
-                        'description': 'test category'
-                    }, 
-                    'messages': 
-                        [
-                            {
-                                'idMessage': 1, 
-                                'messageText': 'Me gusta.'
-                            }
-                        ]
-            }, 
-            'client': 
-                {
-                    'idClient': 1, 
-                    'email': 'agustin@gmail.com', 
-                    'password': 'agustin123', 
-                    'name': 'Agustin Parra', 
-                    'age': 18}, 
-                    'score': None
-                }
+        "idReservation":1,
+        "startDate":"2020-12-20T00:00:00.000+00:00",
+        "devolutionDate":"2020-12-20T00:00:00.000+00:00",
+        "status":"created",
+        "computer": {
+                    "id":1,
+                    "name":"Core I5",
+                    "brand":"IBM",
+                    "year":2019,
+                    "description":"Core I5",
+                    "category": {
+                                "id":1,
+                                "name":"cat1",
+                                "description":"test category"
+                                },
+                    "messages":[
+                                    {
+                                        "idMessage":1,
+                                        "messageText":"Me gusta."
+                                    }
+                                ]
+                    },
+        "client": {
+                "idClient":1,
+                "email":"agustin@gmail.com",
+                "password":"agustin123",
+                "name":"Agustin Parra",
+                "age":18
+                  },
+        "score":null
+    }
 ]
