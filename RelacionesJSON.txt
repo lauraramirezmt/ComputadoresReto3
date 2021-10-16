@@ -1,0 +1,112 @@
+[
+    {
+        "id": 1,
+        "name": "cat1", 
+        "'description'": "test category", 
+        "computers": []
+    }
+]
+------------------------------------------------------
+
+------------------------------------------------------
+[
+    {
+        "id": 1, 
+        "name": "Core I5", 
+        "brand": "IBM", 
+        "year": 2019, 
+        "description": "Core I5", 
+        "category": 
+            {
+                "id": 1, 
+                "name": "cat1", 
+                "description": "test category"
+            }, 
+        "messages": [], 
+        "reservations": []
+    }
+]
+-------------------------------------------------------
+
+-------------------------------------------------------
+[
+    {
+        'idClient': 1, 
+        'email': 'agustin@gmail.com', 
+        'password': 'agustin123', 
+        'name': 'Agustin Parra', 
+        'age': 18, 
+        'messages': [], 
+        'reservations': []
+    }
+]
+--------------------------------------------------------
+
+--------------------------------------------------------
+[
+    {
+        'idMessage': 1, 
+        'messageText': 'Me gusta.', 
+        'computer': 
+            {
+                'id': 1, 
+                'name': 'Core I5', 
+                'brand': 'IBM', 
+                'year': 2019, 
+                'description': 'Core I5', 
+                'category': 
+                    {
+                        'id': 1, 
+                        'name': 'cat1', 
+                        'description': 'test category'
+                    }
+            }, 
+            'client': 
+                {
+                    'idClient': 1, 
+                    'email': 'agustin@gmail.com', 
+                    'password': 'agustin123', 
+                    'name': 'Agustin Parra', 
+                    'age': 18
+                }
+    }
+]
+------------------------------------------------------------
+
+------------------------------------------------------------
+[
+    {
+        'idReservation': 1, 
+        'startDate': '2020-12-20T00:00:00.000+00:00', 
+        'devolutionDate': '2020-12-20T00:00:00.000+00:00', 
+        'status': 'created', 
+        'computer': 
+            {
+                'id': 1, 
+                'name': 'Core I5', 
+                'brand': 'IBM', 'year': 2019, 
+                'description': 'Core I5', 
+                'category': 
+                    {
+                        'id': 1, 
+                        'name': 'cat1', 
+                        'description': 'test category'
+                    }, 
+                    'messages': 
+                        [
+                            {
+                                'idMessage': 1, 
+                                'messageText': 'Me gusta.'
+                            }
+                        ]
+            }, 
+            'client': 
+                {
+                    'idClient': 1, 
+                    'email': 'agustin@gmail.com', 
+                    'password': 'agustin123', 
+                    'name': 'Agustin Parra', 
+                    'age': 18}, 
+                    'score': None
+                }
+]

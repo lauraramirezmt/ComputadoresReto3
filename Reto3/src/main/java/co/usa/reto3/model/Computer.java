@@ -1,5 +1,7 @@
 package co.usa.reto3.model;
 
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
+
 import javax.persistence.*;
 
 @Entity
@@ -7,11 +9,15 @@ import javax.persistence.*;
 public class Computer {
 
     @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Integer id;
     private String brand;
-    private Integer model;
-    private Integer category_id;
-    private String name;
+    private Integer year;
+    @ManyToOne
+    @JoinColumn(name="computersJoin")
+    @JsonIgnoreProperties("computers")
+    private Category category;
+    private String description;
 
     public Integer getId() {
         return id;
@@ -29,27 +35,25 @@ public class Computer {
         this.brand = brand;
     }
 
-    public Integer getModel() {
-        return model;
+    public Integer getYear() {
+        return year;
     }
 
-    public void setModel(Integer model) {
-        this.model = model;
+    public void setYear(Integer year) {
+        this.year = year;
     }
 
-    public Integer getCategory_id() {
-        return category_id;
+    public Category getCategory() { return category; }
+
+    public void setCategory(Category category) {
+        this.category = category;
     }
 
-    public void setCategory_id(Integer category_id) {
-        this.category_id = category_id;
+    public String getDescription() {
+        return description;
     }
 
-    public String getName() {
-        return name;
-    }
-
-    public void setName(String name) {
-        this.name = name;
+    public void setDescription(String description) {
+        this.description = description;
     }
 }
