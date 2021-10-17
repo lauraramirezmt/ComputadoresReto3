@@ -41,18 +41,18 @@ GET /api/Computer/all
 --------
 [
     {
-        "id":1,
-        "name":"Core I5",
-        "brand":"IBM",
-        "year":2019,
-        "description":"Core I5",
-        "category":{
-                    "id":1,
-                    "name":"cat1",
-                    "description":"test category"
-                    },
-        "messages":[],
-        "reservations":[]
+        "id": 1,
+        "name": "Core I5",
+        "brand": "IBM",
+        "year": 2019,
+        "description": "Core I5",
+        "category": {
+            "id": 1,
+            "name": "cat1",
+            "description": "test category"
+        },
+        "messages": [],
+        "reservations": []
     }
 ]
 
@@ -72,13 +72,13 @@ GET /api/Client/all
 ---------
 [
     {
-        "idClient":1,
-        "email":"agustin@gmail.com",
-        "password":"agustin123",
-        "name":"Agustin Parra",
-        "age":18,
-        "messages":[],
-        "reservations":[]
+        "idClient": 1,
+        "name": "Agustin Parra",
+        "email": "agustin@gmail.com",
+        "password": "agustin123",
+        "age": 18,
+        "messages": [],
+        "reservations": []
     }
 ]
 
@@ -113,15 +113,15 @@ GET /api/Message/all
                                 "id":1,
                                 "name":"cat1",
                                 "description":"test category"
-                                }
-                    },
+                    }
+        },
         "client":{
                 "idClient":1,
                 "email":"agustin@gmail.com",
                 "password":"agustin123",
                 "name":"Agustin Parra",
                 "age":18
-                }
+        }
     }
 ]
 
