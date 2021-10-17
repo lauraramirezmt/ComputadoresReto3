@@ -23,10 +23,10 @@ public class MessageService {
     }
 
     public Message save(Message message) {
-        if (message.getId() == null) {
+        if (message.getIdMessage() == null) {
             return messageRepository.save(message);
         } else {
-            Optional<Message> msgAux = messageRepository.getMessage(message.getId());
+            Optional<Message> msgAux = messageRepository.getMessage(message.getIdMessage());
             if (msgAux.isEmpty()) {
                 return messageRepository.save(message);
             } else {
