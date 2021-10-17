@@ -11,27 +11,29 @@ public class Reservation {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Integer id;
+    private Integer idReservation;
     private Date startDate;
     private Date devolutionDate;
-    private String state;
-
-    @ManyToOne
-    @JoinColumn(name="reservationClient")
-    @JsonIgnoreProperties("reservations")
-    private Client client;
+    private String status;
 
     @ManyToOne
     @JoinColumn(name="reservationComputer")
     @JsonIgnoreProperties("reservations")
     private Computer computer;
 
-    public Integer getId() {
-        return id;
+    @ManyToOne
+    @JoinColumn(name="reservationClient")
+    @JsonIgnoreProperties("reservations")
+    private Client client;
+
+    private Integer score;
+
+    public Integer getIdReservation() {
+        return idReservation;
     }
 
-    public void setId(Integer id) {
-        this.id = id;
+    public void setIdReservation(Integer idReservation) {
+        this.idReservation = idReservation;
     }
 
     public Date getStartDate() {
@@ -50,18 +52,12 @@ public class Reservation {
         this.devolutionDate = devolutionDate;
     }
 
-    public String getState() {
-        return state;
+    public String getStatus() {
+        return status;
     }
 
-    public void setState(String state) {
-        this.state = state;
-    }
-
-    public Client getClient() { return client; }
-
-    public void setClient(Client client) {
-        this.client = client;
+    public void setStatus(String status) {
+        this.status = status;
     }
 
     public Computer getComputer() {
@@ -70,5 +66,19 @@ public class Reservation {
 
     public void setComputer(Computer computer) {
         this.computer = computer;
+    }
+
+    public Client getClient() { return client; }
+
+    public void setClient(Client client) {
+        this.client = client;
+    }
+
+    public Integer getScore() {
+        return score;
+    }
+
+    public void setScore(Integer score) {
+        this.score = score;
     }
 }
