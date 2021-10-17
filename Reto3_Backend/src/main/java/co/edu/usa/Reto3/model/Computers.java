@@ -4,11 +4,17 @@
  */
 package co.edu.usa.Reto3.model;
 
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import java.io.Serializable;
+import java.util.List;
+import javax.persistence.CascadeType;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.ManyToOne;
+import javax.persistence.OneToMany;
 import javax.persistence.Table;
 
 /**
@@ -16,22 +22,48 @@ import javax.persistence.Table;
  * @author Laura
  */
 @Entity
-@Table(name="computadores")
-public class Computadores implements Serializable{
+@Table(name="computers")
+public class Computers implements Serializable{
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     
     private Integer idComputadores;
-    private String name;
     private String brand;
     private Integer year;
+    private String name;
     private String description;
+    
+    @ManyToOne
+    @JoinColumn(name="categoryId")
+    @JsonIgnoreProperties("computers")
+    private Category category;
+    
+    @OneToMany(cascade={CascadeType.PERSIST},mappedBy = "computers")
+    @JsonIgnoreProperties({"computers","client"})
+    private List<Reservations> reservations;
+
+    public Category getCategory() {
+        return category;
+    }
+
+    public void setCategory(Category category) {
+        this.category = category;
+    }
+
+    public List<Reservations> getReservations() {
+        return reservations;
+    }
+
+    public void setReservations(List<Reservations> reservations) {
+        this.reservations = reservations;
+    }
+    
 
     public Integer getIdComputadores() {
         return idComputadores;
     }
 
-    public void setIdComputadores(Integer idComputadores) {
+    public void setIdComputers(Integer idComputadores) {
         this.idComputadores = idComputadores;
     }
 
@@ -65,6 +97,10 @@ public class Computadores implements Serializable{
 
     public void setDescription(String description) {
         this.description = description;
+    }
+
+    public Object getId() {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
     
     
