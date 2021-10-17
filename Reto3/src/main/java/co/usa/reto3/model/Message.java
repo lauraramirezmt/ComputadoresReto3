@@ -1,16 +1,24 @@
 package co.usa.reto3.model;
 
-import javax.persistence.Entity;
-import javax.persistence.Id;
-import javax.persistence.Table;
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
+
+import javax.persistence.*;
 
 @Entity
 @Table(name = "message")
 public class Message {
 
     @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Integer id;
     private String messagetext;
+
+    // ManyToOne Client
+
+    @ManyToOne
+    @JoinColumn(name="messagesJoin")
+    @JsonIgnoreProperties("messages")
+    private Computer computer;
 
     public Integer getId() {
         return id;
@@ -26,5 +34,11 @@ public class Message {
 
     public void setMessagetext(String messagetext) {
         this.messagetext = messagetext;
+    }
+
+    public Computer getComputer() { return computer; }
+
+    public void setComputer(Computer computer) {
+        this.computer = computer;
     }
 }
