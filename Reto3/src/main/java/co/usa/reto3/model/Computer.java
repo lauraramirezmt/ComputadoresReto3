@@ -14,17 +14,20 @@ public class Computer {
     private Integer id;
     private String brand;
     private Integer year;
+    private String description;
 
     @ManyToOne
     @JoinColumn(name="computersJoin")
     @JsonIgnoreProperties("computers")
     private Category category;
 
-    private String description;
-
     @OneToMany(cascade = {CascadeType.PERSIST}, mappedBy = "computer")
     @JsonIgnoreProperties("computer")
     public List<Message> messages;
+
+    @OneToMany(cascade = {CascadeType.PERSIST}, mappedBy = "computer")
+    @JsonIgnoreProperties("computer")
+    public List<Reservation> reservations;
 
     public Integer getId() {
         return id;
@@ -56,17 +59,23 @@ public class Computer {
         this.category = category;
     }
 
-    public List<Message> getMessages() { return messages; }
-
-    public void setMessages(List<Message> messages) {
-        this.messages = messages;
-    }
-
     public String getDescription() {
         return description;
     }
 
     public void setDescription(String description) {
         this.description = description;
+    }
+
+    public List<Message> getMessages() { return messages; }
+
+    public void setMessages(List<Message> messages) {
+        this.messages = messages;
+    }
+
+    public List<Reservation> getReservations() { return reservations; }
+
+    public void setReservations(List<Reservation> reservations) {
+        this.reservations = reservations;
     }
 }
