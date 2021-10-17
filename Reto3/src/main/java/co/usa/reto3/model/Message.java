@@ -11,12 +11,12 @@ public class Message {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Integer id;
-    private String messagetext;
+    private String messageText;
 
     // ManyToOne Client
     @ManyToOne
     @JoinColumn(name="messageClient")
-    @JsonIgnoreProperties("clients")
+    @JsonIgnoreProperties("messages")
     private Client client;
 
     @ManyToOne
@@ -32,12 +32,12 @@ public class Message {
         this.id = id;
     }
 
-    public String getMessagetext() {
-        return messagetext;
+    public String getMessageText() {
+        return messageText;
     }
 
-    public void setMessagetext(String messagetext) {
-        this.messagetext = messagetext;
+    public void setMessageText(String messageText) {
+        this.messageText = messageText;
     }
 
     public Client getClient() { return client; }

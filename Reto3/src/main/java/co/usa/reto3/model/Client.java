@@ -23,6 +23,9 @@ public class Client {
     public List<Message> messages;
 
     // OneToMany Reservation
+    @OneToMany(cascade = {CascadeType.PERSIST}, mappedBy = "client")
+    @JsonIgnoreProperties("client")
+    public List<Reservation> reservations;
 
     public Integer getId() {
         return id;
@@ -68,5 +71,11 @@ public class Client {
 
     public void setMessages(List<Message> messages) {
         this.messages = messages;
+    }
+
+    public List<Reservation> getReservations() { return reservations; }
+
+    public void setReservations(List<Reservation> reservations) {
+        this.reservations = reservations;
     }
 }

@@ -17,6 +17,11 @@ public class Reservation {
     private String state;
 
     @ManyToOne
+    @JoinColumn(name="reservationClient")
+    @JsonIgnoreProperties("reservations")
+    private Client client;
+
+    @ManyToOne
     @JoinColumn(name="reservationComputer")
     @JsonIgnoreProperties("reservations")
     private Computer computer;
@@ -51,6 +56,12 @@ public class Reservation {
 
     public void setState(String state) {
         this.state = state;
+    }
+
+    public Client getClient() { return client; }
+
+    public void setClient(Client client) {
+        this.client = client;
     }
 
     public Computer getComputer() {
