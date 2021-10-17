@@ -14,9 +14,13 @@ public class Message {
     private String messagetext;
 
     // ManyToOne Client
+    @ManyToOne
+    @JoinColumn(name="messageClient")
+    @JsonIgnoreProperties("clients")
+    private Client client;
 
     @ManyToOne
-    @JoinColumn(name="messagesJoin")
+    @JoinColumn(name="messageComputer")
     @JsonIgnoreProperties("messages")
     private Computer computer;
 
@@ -34,6 +38,12 @@ public class Message {
 
     public void setMessagetext(String messagetext) {
         this.messagetext = messagetext;
+    }
+
+    public Client getClient() { return client; }
+
+    public void setClient(Client client) {
+        this.client = client;
     }
 
     public Computer getComputer() { return computer; }

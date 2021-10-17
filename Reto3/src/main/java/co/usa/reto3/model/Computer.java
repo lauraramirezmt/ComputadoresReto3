@@ -17,7 +17,7 @@ public class Computer {
     private String description;
 
     @ManyToOne
-    @JoinColumn(name="computersJoin")
+    @JoinColumn(name="computerCategory")
     @JsonIgnoreProperties("computers")
     private Category category;
 

@@ -17,7 +17,7 @@ public class Reservation {
     private String state;
 
     @ManyToOne
-    @JoinColumn(name="reservationsJoin")
+    @JoinColumn(name="reservationComputer")
     @JsonIgnoreProperties("reservations")
     private Computer computer;
 
