@@ -5,7 +5,7 @@
 package co.edu.usa.Reto3.service;
 
 import co.edu.usa.Reto3.Repository.ComputersRepository;
-import co.edu.usa.Reto3.model.Computers;
+import co.edu.usa.Reto3.model.Computer;
 import java.util.List;
 import java.util.Optional;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -21,19 +21,19 @@ public class ComputersService {
     @Autowired
     private ComputersRepository computadoresRepository;
     
-    public List<Computers> getAll(){
+    public List<Computer> getAll(){
         return computadoresRepository.getAll();
     }
     
-    public Optional<Computers> getComputers(int idComputadores){
+    public Optional<Computer> getComputers(int idComputadores){
         return computadoresRepository.getComputers(idComputadores);
     }
     
-    public Computers save(Computers c){
+    public Computer save(Computer c){
         if(c.getIdComputadores()==null){
             return computadoresRepository.save(c);
         }else{
-            Optional<Computers> caux=computadoresRepository.getComputers(c.getIdComputadores());
+            Optional<Computer> caux=computadoresRepository.getComputers(c.getIdComputadores());
             if(caux.isEmpty()){
                 return computadoresRepository.save(c);
             }else{
@@ -42,9 +42,9 @@ public class ComputersService {
         }
     }
     
-       public Computers update(Computers c){
+       public Computer update(Computer c){
         if(c.getId()!=null){
-            Optional<Computers> caux=computadoresRepository.getComputers(c.getIdComputadores());
+            Optional<Computer> caux=computadoresRepository.getComputers(c.getIdComputadores());
             if(!caux.isEmpty()){
                 if(c.getName()!=null){
                     caux.get().setName(c.getName());

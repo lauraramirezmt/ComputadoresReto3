@@ -5,6 +5,7 @@
 package co.edu.usa.Reto3.model;
 
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
+import java.io.Serializable;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
@@ -19,7 +20,7 @@ import javax.persistence.Table;
  */
 @Entity
 @Table(name = "message")
-public class Message {
+public class Message implements Serializable {
        @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Integer idMessage;
@@ -28,7 +29,7 @@ public class Message {
     @ManyToOne
     @JoinColumn(name="id")
     @JsonIgnoreProperties({"messages", "client", "reservations"})
-    private Computers computadores;
+    private Computer computers;
 
     @ManyToOne
     @JoinColumn(name="clientId")
@@ -51,12 +52,12 @@ public class Message {
         this.messageText = messageText;
     }
 
-    public Computers getComputadores() {
-        return computadores;
+    public Computer getComputers() {
+        return computers;
     }
 
-    public void setComputadores(Computers computadores) {
-        this.computadores = computadores;
+    public void setComputers(Computer computers) {
+        this.computers = computers;
     }
 
     public Client getClient() {

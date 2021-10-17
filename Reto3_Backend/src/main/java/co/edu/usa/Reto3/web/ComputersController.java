@@ -4,7 +4,7 @@
  */
 package co.edu.usa.Reto3.web;
 
-import co.edu.usa.Reto3.model.Computers;
+import co.edu.usa.Reto3.model.Computer;
 import co.edu.usa.Reto3.service.ComputersService;
 import java.util.List;
 import java.util.Optional;
@@ -35,23 +35,23 @@ public class ComputersController {
     private ComputersService computersService;
     
     @GetMapping("/all")
-    public List<Computers> getComputers(){
+    public List<Computer> getComputers(){
         return computersService.getAll();
     }
     
    @GetMapping("/{idComputadores}")
-   public Optional<Computers> getComputers(@PathVariable("idComputadores")int idComputadores){
+   public Optional<Computer> getComputers(@PathVariable("idComputadores")int idComputadores){
        return computersService.getComputers(idComputadores);
    }
            
    @PostMapping("/save")
    @ResponseStatus(HttpStatus.CREATED)
-   public Computers save(@RequestBody Computers c){
+   public Computer save(@RequestBody Computer c){
        return computersService.save(c);
    }
    @PutMapping("/update")
     @ResponseStatus(HttpStatus.CREATED)
-    public Computers update(@RequestBody Computers c) {
+    public Computer update(@RequestBody Computer c) {
         return computersService.update(c);
     }
 
