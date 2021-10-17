@@ -101,26 +101,26 @@ GET /api/Message/all
 ------------
 [
     {
-        "idMessage":1,
-        "messageText":"Me gusta.",
-        "computer":{
-                    "id":1,
-                    "name":"Core I5",
-                    "brand":"IBM",
-                    "year":2019,
-                    "description":"Core I5",
-                    "category":{
-                                "id":1,
-                                "name":"cat1",
-                                "description":"test category"
-                    }
+        "idMessage": 1,
+        "messageText": "Me gusta.",
+        "computer": {
+            "id": 1,
+            "name": "Core I5",
+            "brand": "IBM",
+            "year": 2019,
+            "description": "Core I5",
+            "category": {
+                "id": 1,
+                "name": "cat1",
+                "description": "test category"
+            }
         },
-        "client":{
-                "idClient":1,
-                "email":"agustin@gmail.com",
-                "password":"agustin123",
-                "name":"Agustin Parra",
-                "age":18
+        "client": {
+            "idClient": 1,
+            "email": "agustin@gmail.com",
+            "password": "agustin123",
+            "name": "Agustin Parra",
+            "age": 18
         }
     }
 ]
