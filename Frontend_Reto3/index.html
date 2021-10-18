@@ -22,14 +22,27 @@
         <label for="com-brand">Brand</label>
         <input type="text" id="com-brand" placeholder="Brand Computer">
         <label for="com-year">Year</label>
-        <input type="text" id="com-year" placeholder="Year Computer">
+        <input type="number" id="com-year" placeholder="Year Computer">
         <label for="com-desc">Description</label>
-        <input type="text" id="com-desc" placeholder="Description">
+        <input type="text" id="com-desc" placeholder="Description Computer">
       </form>
       <button onclick="saveInfoComputer()">SAVE</button>
     </div>
     <div class="container-client">
-
+      <h2>Client</h2>
+      <div id="tableClient"></div>
+      <button onclick="checkInfoClient()">CHECK</button>
+      <form>
+        <label for="cli-email">Email</label>
+        <input type="email" id="cli-email" placeholder="Email Client">
+        <label for="cli-pass">Password</label>
+        <input type="password" id="cli-pass" placeholder="Password Client">
+        <label for="cli-name">Name</label>
+        <input type="text" id="cli-name" placeholder="Name Client">
+        <label for="cli-age">Age</label>
+        <input type="number" id="cli-age" placeholder="Age Client">
+      </form>
+      <button onclick="saveInfoClient()">SAVE</button>
     </div>
     <div class="container-message">
 

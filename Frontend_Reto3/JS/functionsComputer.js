@@ -48,7 +48,7 @@ function saveInfoComputer() {
             window.location.reload()
         },
 
-        error:function(jqXHR, textStatus, erroThrown) {
+        error:function(jqXHR, textStatus, errorThrown) {
             window.location.reload()
             alert("Unsaved Computer.");
         }
