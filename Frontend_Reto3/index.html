@@ -67,7 +67,16 @@
       <button onclick="saveInfoCategory()">SAVE</button>
     </div>
     <div class="container-reservation">
-
+      <h2>Reservation</h2>
+      <div id="tableReservation"></div>
+      <button onclick="checkInfoReservation()">CHECK</button>
+      <form>
+        <label for="res-start">Start</label>
+        <input type="date" id="res-start" placeholder="Start Date">
+        <label for="res-devol">Devolution</label>
+        <input type="date" id="res-devol" placeholder="Devolution Date">
+      </form>
+      <button onclick="saveInfoReservation()">SAVE</button>
     </div>
   </div>
 </body>
