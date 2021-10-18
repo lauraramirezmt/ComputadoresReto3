@@ -11,19 +11,20 @@ function checkInfoCategory() {
 }
 
 function printCategoryAnswer(answer) {
-    let myTable = "<table>";
-    for (i = 0; i < answer.length; i++) {
-        myTable += "<tr>";
-        myTable += "<td>" + answer[i].name + "</td>";
-        myTable += "<td>" + answer[i].description + "</td>";
-        myTable += "</tr>";
+    let categoryTable = "<table>";
+    for (let i = 0; i < answer.length; i++) {
+        categoryTable += "<tr>";
+        categoryTable += "<td>" + answer[i].id + "</td>";
+        categoryTable += "<td>" + answer[i].name + "</td>";
+        categoryTable += "<td>" + answer[i].description + "</td>";
+        categoryTable += "</tr>";
     }
-    myTable += "</table>";
-    $("#resultComputer").html(myTable);
+    categoryTable += "</table>";
+    $("#tableCategory").html(categoryTable);
 }
 
 function saveInfoCategory() {
-    let dataInfo = {
+    let dataCategory = {
         name:$("#cat-name").val(),
         description:$("#cat-desc").val()
     };
@@ -32,20 +33,20 @@ function saveInfoCategory() {
         type: "POST",
         contentType: "application/json; charset=utf-8",
         dataType: "JSON",
-        data: JSON.stringify(dataInfo),
+        data: JSON.stringify(dataCategory),
 
         url: "http://localhost:8080/api/Category/save",
 
         success:function(response) {
             console.log(response);
-            console.log("Data saved successfully.");
-            alert("Data saved successfully.");
+            console.log("Category saved successfully.");
+            alert("Category saved successfully.");
             window.location.reload()
         },
 
-        error:function(jqXHR, textStatus, erroThrown) {
+        error:function(jqXHR, textStatus, errorThrown) {
             window.location.reload()
-            alert("Unsaved data.");
+            alert("Unsaved Category.");
         }
     });
 }
