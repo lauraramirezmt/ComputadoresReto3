@@ -48,7 +48,7 @@ function saveInfoClient() {
             window.location.reload()
         },
 
-        erro:function(jqXHR, textStatus, errorThrown) {
+        error:function(jqXHR, textStatus, errorThrown) {
             window.location.reload()
             alert("Unsaved Client.");
         }
