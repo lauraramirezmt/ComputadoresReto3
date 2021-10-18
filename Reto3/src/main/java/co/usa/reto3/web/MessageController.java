@@ -3,6 +3,7 @@ package co.usa.reto3.web;
 import co.usa.reto3.model.Message;
 import co.usa.reto3.service.MessageService;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.HttpStatus;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
@@ -27,6 +28,7 @@ public class MessageController {
     }
 
     @PostMapping("/save")
+    @ResponseStatus(HttpStatus.CREATED)
     public Message save(@RequestBody Message message) {
         return messageService.save(message);
     }
