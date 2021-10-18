@@ -1,30 +1,55 @@
 package co.usa.reto3.model;
 
-import javax.persistence.Entity;
-import javax.persistence.Id;
-import javax.persistence.Table;
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
+import com.fasterxml.jackson.annotation.JsonProperty;
+
+import javax.persistence.*;
+import java.io.Serializable;
 
 @Entity
 @Table(name = "message")
-public class Message {
+public class Message implements Serializable {
 
     @Id
-    private Integer id;
-    private String messagetext;
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    private Integer idMessage;
+    private String messageText;
 
-    public Integer getId() {
-        return id;
+    @ManyToOne
+    @JoinColumn(name="messageComputer")
+    @JsonIgnoreProperties({"messages", "reservations"})
+    private Computer computer;
+
+    @ManyToOne
+    @JoinColumn(name="messageClient")
+    @JsonIgnoreProperties({"messages", "reservations"})
+    private Client client;
+
+    public Integer getIdMessage() {
+        return idMessage;
     }
 
-    public void setId(Integer id) {
-        this.id = id;
+    public void setIdMessage(Integer idMessage) {
+        this.idMessage = idMessage;
     }
 
-    public String getMessagetext() {
-        return messagetext;
+    public String getMessageText() {
+        return messageText;
     }
 
-    public void setMessagetext(String messagetext) {
-        this.messagetext = messagetext;
+    public void setMessageText(String messageText) {
+        this.messageText = messageText;
+    }
+
+    public Computer getComputer() { return computer; }
+
+    public void setComputer(Computer computer) {
+        this.computer = computer;
+    }
+
+    public Client getClient() { return client; }
+
+    public void setClient(Client client) {
+        this.client = client;
     }
 }
