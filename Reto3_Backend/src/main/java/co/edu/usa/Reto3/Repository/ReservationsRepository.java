@@ -4,7 +4,7 @@
  */
 package co.edu.usa.Reto3.Repository;
 
-import co.edu.usa.Reto3.model.Reservations;
+import co.edu.usa.Reto3.model.Reservation;
 import java.util.List;
 import java.util.Optional;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -20,17 +20,17 @@ public class ReservationsRepository {
     
     @Autowired
     private ReservationsCrudRepository crud4;
-    public List<Reservations> getAll(){
-        return (List<Reservations>) crud4.findAll();
+    public List<Reservation> getAll(){
+        return (List<Reservation>) crud4.findAll();
     }
-    public Optional<Reservations> getReservations(int id){
+    public Optional<Reservation> getReservations(int id){
         return crud4.findById(id);
     }
 
-    public Reservations save(Reservations reservations){
+    public Reservation save(Reservation reservations){
         return crud4.save(reservations);
     }
-    public void delete(Reservations reservations){
+    public void delete(Reservation reservations){
         crud4.delete(reservations);
     }  
 }

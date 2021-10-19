@@ -32,13 +32,11 @@ public class Computer implements Serializable{
    
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    /**
-     * variables
-     */
-    private Integer idComputadores;
+    
+    private Integer id;
+    private String name;
     private String brand;
     private Integer year;
-    private String name;
     private String description;
     
     /**
@@ -52,25 +50,8 @@ public class Computer implements Serializable{
     /**
      * ignorar propiedades
      */
-    @JsonIgnoreProperties("computers")
+    @JsonIgnoreProperties({"computers"})
     private Category category;
-    /**
-     * relacion uno a muchos
-     */
-    @OneToMany(cascade={CascadeType.PERSIST},mappedBy = "computers")
-    /**
-     * ignorar propiedades
-     */
-    @JsonIgnoreProperties({"computers","client"})
-    private List<Message> messages;
-
-    public List<Message> getMessage() {
-        return messages;
-    }
-    
-    public void setMessage(List<Message> message) {
-        this.messages = message;
-    }
     /**
      * relacion uno a muchos
      */
@@ -78,97 +59,80 @@ public class Computer implements Serializable{
     /**
      * ignorar propiedades
      */
-    @JsonIgnoreProperties({"computers","client"})
-    private List<Reservations> reservations;
-     /**
-     * get categoria
-     */
-    public Category getCategory() {
-        return category;
+    @JsonIgnoreProperties({"computer","client"})
+    private List<Message> messages;
+    
+        @OneToMany(cascade = {CascadeType.PERSIST}, mappedBy = "computer")
+    @JsonIgnoreProperties({"computer","client"})
+    public List<Reservation> reservations;
+
+    public Integer getId() {
+        return id;
     }
-     /**
-     * set categoria
-     */
-    public void setCategory(Category category) {
-        this.category = category;
+
+    public void setId(Integer id) {
+        this.id = id;
     }
-     /**
-     * get reservaciones
-     */
-    public List<Reservations> getReservations() {
-        return reservations;
-    }
-    /**
-     * set reservaciones
-     */
-    public void setReservations(List<Reservations> reservations) {
-        this.reservations = reservations;
-    }
-    /**
-     * get computadores
-     */
-    public Integer getIdComputadores() {
-        return idComputadores;
-    }
-    /**
-     * set computadores
-     */
-    public void setIdComputers(Integer idComputadores) {
-        this.idComputadores = idComputadores;
-    }
-    /**
-     * get name
-     */
+
     public String getName() {
         return name;
     }
-    /**
-     * set name
-     */
+
     public void setName(String name) {
         this.name = name;
     }
-    /**
-     * get brand
-     */
+
     public String getBrand() {
         return brand;
     }
-    /**
-     * set brand
-     */
+
     public void setBrand(String brand) {
         this.brand = brand;
     }
-    /**
-     * get year
-     */
+
     public Integer getYear() {
         return year;
     }
-    /**
-     * set year
-     */
+
     public void setYear(Integer year) {
         this.year = year;
     }
-    /**
-     * get descripcion
-     */
+
     public String getDescription() {
         return description;
     }
-    /**
-     * set descripcion
-     */
+
     public void setDescription(String description) {
         this.description = description;
     }
 
-    public Object getId() {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    public Category getCategory() {
+        return category;
     }
+
+    public void setCategory(Category category) {
+        this.category = category;
+    }
+
+    public List<Message> getMessages() {
+        return messages;
+    }
+
+    public void setMessages(List<Message> messages) {
+        this.messages = messages;
+    }
+
+    public List<Reservation> getReservations() {
+        return reservations;
+    }
+
+    public void setReservations(List<Reservation> reservations) {
+        this.reservations = reservations;
+    }
+
     
     
+   }
+   
     
-}
+

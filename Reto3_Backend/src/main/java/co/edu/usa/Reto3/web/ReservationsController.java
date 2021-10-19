@@ -4,7 +4,7 @@
  */
 package co.edu.usa.Reto3.web;
 
-import co.edu.usa.Reto3.model.Reservations;
+import co.edu.usa.Reto3.model.Reservation;
 import co.edu.usa.Reto3.service.ReservationsService;
 import java.util.List;
 import java.util.Optional;
@@ -34,22 +34,22 @@ public class ReservationsController {
     @Autowired
     private ReservationsService servicio;
     @GetMapping("/all")
-    public List<Reservations> getReservations(){
+    public List<Reservation> getReservations(){
         return servicio.getAll();
     }
 
     @GetMapping("/{id}")
-    public Optional<Reservations> getReservation(@PathVariable("id") int reservationId) {
+    public Optional<Reservation> getReservation(@PathVariable("id") int reservationId) {
         return servicio.getReservations(reservationId);
     }
     @PostMapping("/save")
     @ResponseStatus(HttpStatus.CREATED)
-    public Reservations save(@RequestBody Reservations reservation) {
+    public Reservation save(@RequestBody Reservation reservation) {
         return servicio.save(reservation);
     }
     @PutMapping("/update")
     @ResponseStatus(HttpStatus.CREATED)
-    public Reservations update(@RequestBody Reservations reservation) {
+    public Reservation update(@RequestBody Reservation reservation) {
         return servicio.update(reservation);
     }
     @DeleteMapping("/{id}")

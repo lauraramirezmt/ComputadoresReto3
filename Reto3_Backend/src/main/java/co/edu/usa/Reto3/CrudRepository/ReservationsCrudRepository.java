@@ -4,13 +4,13 @@
  */
 package co.edu.usa.Reto3.CrudRepository;
 
-import co.edu.usa.Reto3.model.Reservations;
+import co.edu.usa.Reto3.model.Reservation;
 import org.springframework.data.repository.CrudRepository;
 
 /**
  *
  * @author Laura
  */
-public interface ReservationsCrudRepository extends CrudRepository<Reservations, Integer> {
+public interface ReservationsCrudRepository extends CrudRepository<Reservation, Integer> {
     
 }

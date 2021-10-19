@@ -5,7 +5,7 @@
 package co.edu.usa.Reto3.service;
 
 import co.edu.usa.Reto3.Repository.ReservationsRepository;
-import co.edu.usa.Reto3.model.Reservations;
+import co.edu.usa.Reto3.model.Reservation;
 import java.util.List;
 import java.util.Optional;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -21,19 +21,19 @@ public class ReservationsService {
      @Autowired
     private ReservationsRepository metodosCrud;
 
-    public List<Reservations> getAll(){
+    public List<Reservation> getAll(){
         return metodosCrud.getAll();
     }
 
-    public Optional<Reservations> getReservations(int reservationId) {
+    public Optional<Reservation> getReservations(int reservationId) {
         return metodosCrud.getReservations(reservationId);
     }
 
-    public Reservations save(Reservations reservations){
+    public Reservation save(Reservation reservations){
         if(reservations.getIdReservation()==null){
             return metodosCrud.save(reservations);
         }else{
-            Optional<Reservations> e= metodosCrud.getReservations(reservations.getIdReservation());
+            Optional<Reservation> e= metodosCrud.getReservations(reservations.getIdReservation());
             if(e.isEmpty()){
                 return metodosCrud.save(reservations);
             }else{
@@ -42,9 +42,9 @@ public class ReservationsService {
         }
     }
 
-    public Reservations update(Reservations reservations){
+    public Reservation update(Reservation reservations){
         if(reservations.getIdReservation()!=null){
-            Optional<Reservations> e= metodosCrud.getReservations(reservations.getIdReservation());
+            Optional<Reservation> e= metodosCrud.getReservations(reservations.getIdReservation());
             if(!e.isEmpty()){
 
                 if(reservations.getStartDate()!=null){

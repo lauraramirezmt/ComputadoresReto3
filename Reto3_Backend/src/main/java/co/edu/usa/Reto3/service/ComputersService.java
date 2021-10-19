@@ -30,10 +30,10 @@ public class ComputersService {
     }
     
     public Computer save(Computer c){
-        if(c.getIdComputadores()==null){
+        if(c.getId()==null){
             return computadoresRepository.save(c);
         }else{
-            Optional<Computer> caux=computadoresRepository.getComputers(c.getIdComputadores());
+            Optional<Computer> caux=computadoresRepository.getComputers(c.getId());
             if(caux.isEmpty()){
                 return computadoresRepository.save(c);
             }else{
@@ -44,7 +44,7 @@ public class ComputersService {
     
        public Computer update(Computer c){
         if(c.getId()!=null){
-            Optional<Computer> caux=computadoresRepository.getComputers(c.getIdComputadores());
+            Optional<Computer> caux=computadoresRepository.getComputers(c.getId());
             if(!caux.isEmpty()){
                 if(c.getName()!=null){
                     caux.get().setName(c.getName());
