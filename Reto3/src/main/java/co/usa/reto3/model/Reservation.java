@@ -1,13 +1,15 @@
 package co.usa.reto3.model;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 
 import javax.persistence.*;
+import java.io.Serializable;
 import java.util.Date;
 
 @Entity
 @Table(name = "reservation")
-public class Reservation {
+public class Reservation implements Serializable {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -18,7 +20,7 @@ public class Reservation {
 
     @ManyToOne
     @JoinColumn(name="reservationComputer")
-    @JsonIgnoreProperties({"reservations", "messages.client"})
+    @JsonIgnoreProperties({"reservations"})
     private Computer computer;
 
     @ManyToOne
