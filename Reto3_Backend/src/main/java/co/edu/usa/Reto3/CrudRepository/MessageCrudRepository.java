@@ -4,13 +4,13 @@
  */
 package co.edu.usa.Reto3.CrudRepository;
 
-import co.edu.usa.Reto3.model.Computadores;
+import co.edu.usa.Reto3.model.Message;
 import org.springframework.data.repository.CrudRepository;
 
 /**
  *
  * @author Laura
  */
-public interface ComputadoresCrudRepository extends CrudRepository<Computadores, Integer>{
+public interface MessageCrudRepository extends CrudRepository<Message, Integer> {
     
 }
